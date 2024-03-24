@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Banda</title>
+    <link rel="stylesheet" href="/styles.css"> 
+</head>
+<body>
+    <main class="container">
+        <h1>Detalle de Banda</h1>
+        <div class="band-detail">
+            <h2>Nombre: <%= banda.nombre %></h2>
+            <p class="band-info"><strong>Integrantes:</strong> <%= banda.integrantes %></p>
+
+            <a href="http://localhost:3000/bandas/genero/<%=banda.genero %>"> 
+
+                <p class="band-info"><strong>Género:</strong> <%= banda.genero %></p>
+            
+            </a>
+
+            <p class="band-info"><strong>Top Canciones:</strong></p>
+            <ul class="song-list">
+                <% for (let i = 0; i < banda.topCanciones.length; i++) { %>
+                    <li><%= banda.topCanciones[i] %></li>
+                <% } %>
+            </ul>
+            <img src="<%= banda.cover %>" alt="Portada de la banda" class="band-image">
+            <a href="<%= banda.video %>" class="band-video">Ver video</a>
+        </div>
+    </main>
+</body>
+</html>

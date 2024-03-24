@@ -1,0 +1,31 @@
+<head>
+    <title>Listado de Bandas</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <main class="container">
+        <h1>Listado de Bandas</h1>
+        <ul class="band-list">
+            <% for (let i = 0; i < datos.length; i++) { %>
+                <li class="band-item">
+                    <a href="http://localhost:3000/bandas/detalle/<%=datos[i].id %>">
+                    
+                            <strong>Nombre:</strong> <%= datos[i].nombre %><br>
+                            <strong>Integrantes:</strong> <%= datos[i].integrantes %><br>
+                            <strong>Género:</strong> <%= datos[i].genero %><br>
+                            <strong>Top Canciones:</strong>
+                            <ul class="song-list">
+                                <% for (let j = 0; j < datos[i].topCanciones.length; j++) { %>
+                                    <li><%= datos[i].topCanciones[j] %></li>
+                                <% } %>
+                            </ul>
+                            <img src="<%= datos[i].cover %>" alt="Portada de la banda" class="band-image">
+                            <a href="<%= datos[i].video %>" class="band-video">Ver video</a>
+
+                    </a>
+                </li>
+            <% } %>
+        </ul>
+    </main>
+</body>
+</html>
